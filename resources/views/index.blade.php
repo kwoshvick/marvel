@@ -21,8 +21,8 @@
                 <img class="character-thumbnail" src="{{$character->thumbnail}}" />
                 <p class="title">{{$character->name}}</p>
                 <div class="comic-series-container">
-                    <span class="series">Comics: 12</span>
-                    <span class="series">Series: 3</span>
+                    <span class="series">{{$character->comics}}</span>
+                    <span class="series">{{$character->series}}</span>
                 </div>
             </div>
         @endforeach

@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('marvel_id');
             $table->binary('description')->nullable();
+            $table->string('series')->nullable();
+            $table->string('stories')->nullable();
+            $table->string('comics')->nullable();
             $table->string('thumbnail')->nullable();
             $table->timestamps();
         });

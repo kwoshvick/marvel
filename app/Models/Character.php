@@ -10,6 +10,6 @@ class Character extends Model
     use HasFactory;
     protected $fillable = [
         'name', 'marvel_id', 'description',
-        'thumbnail'
+        'thumbnail', 'series', 'stories', 'comics'
         ];
 }
