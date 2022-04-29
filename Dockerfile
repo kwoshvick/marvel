@@ -47,6 +47,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 
 COPY . .
+RUN cp docker/laravel/envs/env.dev ./.env
 RUN npm install
 RUN composer install --ignore-platform-reqs
 RUN composer dump-autoload

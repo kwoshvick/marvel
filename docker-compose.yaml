@@ -12,21 +12,21 @@ services:
     networks:
       - app-network
 
-  server:
-    container_name: nginx_app
+  server1:
+    container_name: nginx_app1
     image: nginx:alpine
     ports:
       - 8010:80
       - 443:443
     volumes:
-      - ./:/large-file
+      - ./:/marvel
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
 
-  db:
+  db1:
     image: mysql:8.0
-    container_name: db_app
+    container_name: db_app1
     environment:
       MYSQL_DATABASE: marvel
       MYSQL_USER: marvel_user
@@ -40,13 +40,13 @@ services:
     networks:
       - app-network
 
-  phpmyadmin:
+  phpmyadmin1:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin_app
+    container_name: phpmyadmin_app1
     links:
-      - db
+      - db1
     environment:
-      PMA_HOST: db
+      PMA_HOST: db1
       PMA_PORT: 3310
       PMA_ARBITRARY: 1
     restart: always
