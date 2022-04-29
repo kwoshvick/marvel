@@ -38,6 +38,8 @@ COPY . .
 RUN cp docker/laravel/envs/env.dev ./.env
 RUN npm install
 RUN composer install --ignore-platform-reqs
+RUN php artisan optimize
+RUN composer dump
 RUN composer dump-autoload
 
 RUN chmod 777 -R storage
