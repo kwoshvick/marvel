@@ -6,6 +6,8 @@
 - [Install docker compose](https://docs.docker.com/compose/install/)
 - Clone the project
 - Insider the project folder run:
+- Build containers
+  - `docker-compose build`
 - Run the containers
   - `docker-compose up -d `
 - run migration
