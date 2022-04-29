@@ -1,0 +1,63 @@
+version: '3.3'
+services:
+
+  marvel_backend:
+    image: marvel
+    container_name: marvel_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app-network
+
+  server:
+    container_name: nginx_app
+    image: nginx:alpine
+    ports:
+      - 8010:80
+      - 443:443
+    volumes:
+      - ./:/large-file
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    container_name: db_app
+    environment:
+      MYSQL_DATABASE: marvel
+      MYSQL_USER: marvel_user
+      MYSQL_PASSWORD: my_passwd_user
+      MYSQL_ROOT_PASSWORD: admin
+#    volumes:
+#      - ./dbdata:/var/lib/mysql
+#      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3310:3306
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_app
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3310
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+    networks:
+      - app-network
+
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
