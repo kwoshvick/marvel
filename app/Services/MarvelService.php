@@ -40,7 +40,7 @@ class MarvelService
                 'marvel_id' => $character['id'],
                 'name' => $character['name'],
                 'description' => $character['description'],
-                'thumbnail' => $character['thumbnail']['path'],
+                'thumbnail' => $character['thumbnail']['path'] . '.' . $character['thumbnail']['extension'],
                 'series' => $character['series']['available'],
                 'comics' => $character['comics']['available'],
                 'stories' => $character['stories']['available']
