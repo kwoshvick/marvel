@@ -1,0 +1,59 @@
+.page-background {
+    background-color: #111111;
+}
+.page-title-container {
+    margin: 10px 0px 10px 0px;
+}
+.page-title {
+    font-weight: 300;
+    font-size: 1.8em;
+    display: inline-block;
+    float: left;
+    opacity: .8;
+    position: relative;
+    color: #fff;
+    padding-left: 0px;
+}
+.page-title::before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 10%;
+    top: 120%;
+    left: 0;
+    background: #343a40;
+}
+.character-container {
+    background-image: url("http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    border-radius: 5px;
+}
+.character-thumbnail {
+    width: 100%;
+}
+.title {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    margin-bottom: 0;
+}
+.comic-series-container{
+    color: #959595;
+    flex: 1;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+.comic-series-container>.series {
+    font-size: .9em;
+}
+.pagination-container {
+    margin-top: 20px;
+}
